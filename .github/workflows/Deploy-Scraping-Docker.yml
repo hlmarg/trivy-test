@@ -25,11 +25,11 @@ jobs:
   Build_and_Push_Scrapping_Image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         name: Checkout Repository
       
       - name: Build and push container image to registry - BACKEND
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: false
@@ -44,7 +44,7 @@ jobs:
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          #severity: 'CRITICAL,HIGH'
       
       #- uses: Azure/login@v1
       #  name: azure Login
