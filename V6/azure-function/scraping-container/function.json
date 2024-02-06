@@ -1,0 +1,13 @@
+{
+    "bindings": [
+      {
+        "name": "QueueItem",
+        "type": "queueTrigger",
+        "direction": "in",
+        "queueName": "scraping-queue",
+        "connection": "stgconnection",
+        "batchSize": 5,
+        "newBatchThreshold": 0
+      }
+    ]
+  }

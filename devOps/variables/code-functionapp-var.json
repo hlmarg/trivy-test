@@ -1,0 +1,119 @@
+{
+    "Variables": [
+      {
+        "Key": "spn_clientId",
+        "Value": "1ab48f1c-7f81-4ee8-a434-c7b9fac8c588",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "spn_tenantId",
+        "Value": "d8d1e5c5-0cae-4ac9-b4b4-229d9a6cc2e6",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "queue",
+        "Value": "scraping-queue",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "rsg_scraping",
+        "Value": "p1-rsg-uwe-scraping-01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "rsg_shared",
+        "Value": "x1-rsg-uwe-shared-01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "scriping_law",
+        "Value": "p1-law-uwe-scraping-01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "scriping_acr_fqdn",
+        "Value": "vettxacr01.azurecr.io",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "scriping_acr_name",
+        "Value": "vettxacr01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+
+      {
+        "Key": "vnet_east",
+        "Value": "x1-vnt-ues-integration-01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "vnet_west",
+        "Value": "x1-vnt-uwe-integration-01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "vnet_central",
+        "Value": "x1-vnt-unc-integration-01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      }, 
+      {
+        "Key": "workspace_id",
+        "Value": "80183730-28d7-45e7-baec-2fc4a6d7ab52",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      },
+      {
+        "Key": "stgaccount",
+        "Value": "p1azfuwescraping01",
+        "Env": [
+          "dev",
+          "prod"
+        ]
+      }
+    ],
+    "Secrets": [
+      {
+        "name": "spn-Exit83-deploy",
+        "appname": "spn_clientSecret",
+        "Env": [
+            "dev",
+            "prod"
+          ]
+      }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+  "Variables": [
+    {
+      "Name": "API_INTEGRATION_URL",
+      "Value": "https://d1-wap-uwe-webapi-02.azurewebsites.net",
+      "Env": ["dev"]
+    },
+    {
+      "Name": "API_INTEGRATION_URL",
+      "Value": "https://app-api.vettx.com",
+      "Env": ["prod"]
+    },
+    {
+      "Name": "API_INTEGRATION_USERNAME",
+      "Value": "scraper",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "AZURE_STORAGE_SCRAPER_CONTAINER",
+      "Value": "scraping-prod",
+      "Env": ["prod"]
+    },
+    {
+      "Name": "AZURE_STORAGE_SCRAPER_CONTAINER",
+      "Value": "scraping-dev",
+      "Env": ["dev"]
+    },
+    {
+      "Name": "SEND_GRID_FROM",
+      "Value": "support@vettx.com",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SEND_GRID_TO",
+      "Value": "vettxscrapers@googlegroups.com",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SEND_EMAIL",
+      "Value": "1",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SAVE_SCREENSHOTS",
+      "Value": "1",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SCRAPER_VPN_USER",
+      "Value": "vettxdev",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SCRAPER_VPN_PASSWORD",
+      "Value": "deb557-213246-d83655-4534a5-7de0db",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SCRAPER_PROXY_URL",
+      "Value": "usa.rotating.proxyrack.net",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "SCRAPER_PROXY_AUTH",
+      "Value": "https://api.starhome.io",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "FACEBOOK_VPN_SERVICE",
+      "Value": "0",
+      "Env": ["prod"]
+    },
+    {
+      "Name": "FACEBOOK_VPN_SERVICE",
+      "Value": "0",
+      "Env": ["dev"]
+    },
+    {
+      "Name": "APPLICATIONINSIGHTS_ENABLED",
+      "Value": "0",
+      "Env": ["dev", "prod"]
+    }
+  ],
+  "Secrets": [
+    {
+      "name": "scrapper-dev-pass",
+      "appname": "API_INTEGRATION_PASSWORD",
+      "Env": ["dev"]
+    },
+    {
+      "name": "scrapper-prod-pass",
+      "appname": "API_INTEGRATION_PASSWORD",
+      "Env": ["prod"]
+    },
+    {
+      "name": "SCRAPING-SEND-GRID-KEY",
+      "appname": "SEND_GRID_KEY",
+      "Env": ["prod", "dev"]
+    },
+    {
+      "Name": "SCRAPING-VPN-TOKEN",
+      "appname": "SCRAPER_VPN_TOKEN",
+      "Env": ["dev", "prod"]
+    },
+    {
+      "Name": "CAPTCHA-SOLVER-API-KEY",
+      "appname": "CAPTCHA_SOLVER_API_KEY",
+      "Env": ["dev"]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "scraping": {
+    "cpu": 1,
+    "memoryGB": 2,
+    "context": "dev",
+    "environmentVariables": [
+      {
+        "name": "RUN_PARAMETERS_BLOB_NAME",
+        "value": "payload-scraper.example.json"
+      },
+      {
+        "name": "ENV_VAR_1",
+        "value": "value1"
+      },
+      {
+        "name": "ENV_VAR_2",
+        "value": "value2"
+      }
+    ]
+  }
+}

@@ -1,0 +1,135 @@
+name: Build and Push the Scrapping image -
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - 'V6/scripts/**'
+      - '.github/workflows/Deploy-Scraping-Docker.yml'
+      - 'devOps/variables/containers-variables.json'
+  workflow_dispatch:
+    branches:
+      - dev
+      - main
+  workflow_call:
+ 
+
+env:
+  ARM_CLIENT_SECRET: ${{ secrets.SPN_SECRET_ID }}
+  NODE_VERSION: '16.x'
+
+
+jobs:
+  Build_and_Push_Scrapping_Image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout Repository
+      
+      - name: Build and push container image to registry - BACKEND
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: false
+          tags: docker.io/my-organization/my-app:${{ github.sha }}
+          file: ./dockerfile
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+      
+      #- uses: Azure/login@v1
+      #  name: azure Login
+      #  with:
+      #    creds: ${{ secrets.EXIT83_AZURE_SPN }}
+      
+           
+      #- name: Getting the Azure information
+      #  shell: pwsh
+      #  run: |
+      #    # Get the Container registry information
+      #    $rsgname=az group list --query "[?contains(name,'scraping') ].name" -o tsv       
+      #    $acrname=az acr list -g $rsgname --query [].name -o tsv
+      #    $fqdnacr=az acr list -g $rsgname --query [].loginServer -o tsv
+      #    echo "fqdnacr=$fqdnacr" >> $env:GITHUB_ENV
+      #    az acr login -n $acrname
+      #    $acruser= az acr credential show -n $acrname -g $rsgname --query username -o tsv
+      #    echo "acruser=$acruser" >> $env:GITHUB_ENV
+      #    $acrpass= az acr credential show -n $acrname -g $rsgname --query passwords[0].value -o tsv
+      #    echo "::add-mask::$acrpass"
+      #    echo "acrpass=$acrpass" >> $env:GITHUB_ENV
+      
+      #- name: Define the Variables for the Docker Images
+      #  shell: pwsh
+      #  run: |
+      #    $branch="${{ github.ref_name }}"
+      #    if ($branch -eq 'main') {
+      #      $Enviro = 'prod'
+      #    } else {
+      #      $Enviro = 'dev'
+      #    }
+      #    # Validate the connection string and save on Keyvault
+      #    $rsgname=az group list --query "[?contains(name,'scraping') ].name" -o tsv 
+      #    $stgname=az storage account list -g $rsgname --query "[?starts_with(name, 'p')].name" -o tsv
+      #    $stgconnectionstring= az storage account show-connection-string -g $rsgname -n $stgname -o tsv
+      #    $dockervar+="ENV " + "AZURE_STORAGE_CONNECTION_STRING_SCRAPER=" + "'" + $stgconnectionstring + "'" + "`n"
+#
+      #    # Getting the Application Insght connection string
+      #    az extension add -n application-insights --yes
+      #    if ($Enviro -eq 'prod') {
+      #      $appinsight=az resource list -g $rsgname --resource-type "microsoft.insights/components" --query "[?starts_with(name, 'p1') && ends_with(name, '01') ].name" -o tsv
+      #    } else {
+      #      $appinsight=az resource list -g $rsgname --resource-type "microsoft.insights/components" --query "[?starts_with(name, 'd1') && ends_with(name, '01') ].name" -o tsv
+      #    }
+      #    $appinsightconn=(az monitor app-insights component show --app $appinsight -g $rsgname  |ConvertFrom-Json ).connectionString
+      #    #$dockervar+="ENV " + "APPLICATIONINSIGHTS_CONNECTION_STRING=" + "'" + $appinsightconn + "'" + "`n"
+#
+      #    # Export the variables for the Container Image
+      #    $pathfile= './devOps/variables/containers-variables.json'
+      #    $variables=Get-Content $pathfile |ConvertFrom-Json
+      #    $varstodefine=$variables.Variables |where {$_.env -contains $Enviro}
+      #    foreach ($var in $varstodefine) {
+      #      $dockervar+="ENV " + $var.name + "=" + $var.Value + "`n"
+      #    }
+      #    # Export the secure variables for the Container Image.
+      #    $akvname=az resource list --resource-type "Microsoft.KeyVault/vaults" --query "[?ends_with(name,'integratio-01') ].name" -o tsv
+      #    $varsectodefine=$variables.Secrets |where {$_.env -contains $Enviro}
+      #    foreach ($varsec in $varsectodefine) {
+      #      $akvvalue= az keyvault secret show --vault-name $akvname --name $varsec.name --query value -o tsv
+      #      $dockervar+="ENV " + $varsec.appname + "=" + $akvvalue + "`n"
+      #    }
+      #    #Define the docker image name
+      #    if ("${{ github.ref_name }}" -eq 'main') {
+      #      $imgname = '/scraping:latest'
+      #    } else {
+      #      $imgname = '/scraping-dev:latest'
+      #    }
+      #    echo "imgname=$imgname" >> $env:GITHUB_ENV
+      #    (get-content .\dockerfile) -replace '##-ENV-##', $dockervar | set-content .\dockerfile
+      #    Get-Content .\dockerfile
+
+      #- name: Login to ACR
+      #  uses: docker/login-action@v2
+      #  with:
+      #    registry: ${{ env.fqdnacr }}
+      #    username: ${{ env.acruser }}
+      #    password: ${{ env.acrpass }}
+      #
+      #- name: Set up Docker Buildx
+      #  uses: docker/setup-buildx-action@v2
+#
+      #- name: Build and push container image to registry - BACKEND
+      #  uses: docker/build-push-action@v3
+      #  with:
+      #    context: .
+      #    push: true
+      #    tags: ${{ env.fqdnacr }}${{ env.imgname }}
+      #    file: ./dockerfile

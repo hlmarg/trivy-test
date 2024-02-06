@@ -1,0 +1,11 @@
+{
+  "id": 0,
+  "type": "cookie-generation",
+  "platform": "facebook",
+  "accounts": [
+    {
+      "name": "",
+      "password": ""
+    }
+  ]
+}

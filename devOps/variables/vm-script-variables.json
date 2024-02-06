@@ -1,0 +1,80 @@
+{
+    "Variables": [
+      {
+        "Name": "rsg-name",
+        "Value": "d1-rsg-uwe-VM-01",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "rsg-shared",
+        "Value": "x1-rsg-uwe-shared-01",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "Environment",
+        "Value": "dev",
+        "Scope": {
+          "Environment": [
+            "dev"
+          ]
+        }
+      },
+      {
+        "Name": "Environment",
+        "Value": "prod",
+        "Scope": {
+          "Environment": [
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "Enviro",
+        "Value": "prod",
+        "Scope": {
+          "Environment": [
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "Enviro",
+        "Value": "dev",
+        "Scope": {
+          "Environment": [
+            "dev"
+          ]
+        }
+      },
+      {
+        "Name": "container",
+        "Value": "scrapping-container",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "sshname",
+        "Value": "dev-d1-vml-uwe-VM-01-vettxadmin-sshkey",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      }
+    ]
+}  

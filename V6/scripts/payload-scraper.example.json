@@ -1,0 +1,97 @@
+{
+  "id": 0,
+  "type": "scraper",
+  "scraper": "facebook",
+  "markets": [
+    {
+      "id": 4,
+      "location": "Dundee, MI",
+      "zipCode": "48131",
+      "dealershipGroupId": 4,
+      "marketSettings": [
+        {
+          "name": "tier",
+          "value": "premium"
+        },
+        {
+          "name": "search-radius",
+          "value": "30"
+        },
+        {
+          "name": "craigslist-location",
+          "value": "dundee"
+        },
+        {
+          "name": "search-fb-link",
+          "value": "https://www.facebook.com/marketplace/109308032429710"
+        },
+        {
+          "name": "time-zone",
+          "value": "est"
+        },
+        {
+          "name": "search-max-mileage",
+          "value": "125000"
+        },
+        {
+          "name": "search-max-price",
+          "value": "250000"
+        },
+        {
+          "name": "search-min-year",
+          "value": "2010"
+        },
+        {
+          "name": "search-max-year",
+          "value": "2024"
+        },
+        {
+          "name": "search-terms",
+          "value": ""
+        },
+        {
+          "name": "book-methods",
+          "value": "jdp"
+        },
+        {
+          "name": "book-methods",
+          "value": "mmr-mw"
+        },
+        {
+          "name": "sources",
+          "value": "facebook"
+        },
+        {
+          "name": "sources",
+          "value": "craigslist"
+        },
+        {
+          "name": "sources",
+          "value": "autotrader"
+        },
+        {
+          "name": "sources",
+          "value": "cargurus"
+        },
+        {
+          "name": "sources",
+          "value": "cars.com"
+        }
+      ],
+      "blockedUsers": [
+        {
+          "username": "Stanley Kaufman"
+        },
+        {
+          "username": "Derrick Fawley"
+        },
+        {
+          "username": "Hass Albustani"
+        }
+      ],
+      "dealershipGroup": {
+        "name": "Williams Brothers CDJR"
+      }
+    }
+  ]
+}

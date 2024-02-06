@@ -1,0 +1,44 @@
+{
+    "Variables": [
+      {
+        "Name": "rg_name",
+        "Value": "p1-rsg-uwe-scraping-01",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "rg_shared",
+        "Value": "x1-rsg-uwe-shared-01",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "akv_name",
+        "Value": "x1-akv-uwe-integratio-01",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      },
+      {
+        "Name": "Enviro",
+        "Value": "prod",
+        "Scope": {
+          "Environment": [
+            "dev",
+            "main"
+          ]
+        }
+      }
+    ]
+}

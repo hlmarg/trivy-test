@@ -1,0 +1,17 @@
+{
+  "Variables": [{
+      "Key": "API_URL",
+      "Value": "https://d1-wap-uwe-webapi-02.azurewebsites.net",
+      "Env": [
+        "dev"
+      ]
+    },
+    {
+      "Key": "API_URL",
+      "Value": "https://p1-wap-uwe-webapi-02.azurewebsites.net",
+      "Env": [
+        "main"
+      ]
+    }
+  ]
+}
